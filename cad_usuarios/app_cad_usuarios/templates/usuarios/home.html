@@ -1,0 +1,48 @@
+{% extends 'usuarios/base.html' %}
+
+<!--Onde sera renderizado-->
+{% block conteudo %}
+
+<!-- Deverá ser adicionado na urls.py o direcionamento da action para listagem_usuarios -->
+<form action="{% url 'listagem_usuarios' %}" method="post" class="form-horizontal" style="width: 50%; margin: 0 auto;">
+    {% csrf_token %}
+    <div class="form-group">
+        <h1 style="margin: 0 auto;">Cadastro de Usuários</h1>
+        <br>
+        <div class="form-group">
+            <label for="nome" class="col-sm-2 control-label">Nome:</label>
+            <div class="col-sm-10">
+                <input type="text" id="nome" name="nome" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="tipo" class="col-sm-2 control-label">Tipo:</label>
+            <div class="col-sm-10">
+                <select type="" id="tipo" name="tipo" class="form-control">
+                    <option value="" selected>Selecione seu status</option>
+                    <option value="aluno">Aluno</option>
+                    <option value="orientador">Orientador</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="curso" class="col-sm-2 control-label">Curso:</label>
+            <div class="col-sm-10">
+                <select type="" id="curso" name="curso" class="form-control">
+                    <option value="" selected>Selecione o curso</option>
+                    <option value="ads">ADS</option>
+                    <option value="math">Matemática</option>
+                    <option value="engmecanica">Eng.Mecânica</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+{% endblock %}
